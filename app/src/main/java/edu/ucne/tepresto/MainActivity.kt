@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import dagger.hilt.android.AndroidEntryPoint
+import edu.ucne.tepresto.ui.ocupacion.OcupacionScreen
 import edu.ucne.tepresto.ui.theme.TePrestoTheme
 
 @AndroidEntryPoint
@@ -24,22 +25,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    OcupacionScreen()
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    TePrestoTheme {
-        Greeting("Android")
-    }
-}
