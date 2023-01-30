@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import dagger.hilt.android.AndroidEntryPoint
 import edu.ucne.tepresto.ui.ocupacion.OcupacionScreen
+import edu.ucne.tepresto.ui.persona.PersonaScreen
 import edu.ucne.tepresto.ui.theme.TePrestoTheme
 
 @AndroidEntryPoint
@@ -25,7 +26,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    OcupacionScreen()
+                   // OcupacionScreen()
+                    PersonaScreen()
                 }
             }
         }
