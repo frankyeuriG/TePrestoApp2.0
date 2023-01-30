@@ -15,9 +15,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun OcupacionScreen( viewModel: OcupacionViewModel = hiltViewModel()) {
-
     var descripcion by remember { mutableStateOf("") }
     var sueldo by remember { mutableStateOf("") }
+
     Box(
         Modifier
             .fillMaxSize()
