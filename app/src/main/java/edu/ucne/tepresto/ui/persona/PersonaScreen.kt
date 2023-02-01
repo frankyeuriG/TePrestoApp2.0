@@ -21,7 +21,7 @@ import edu.ucne.tepresto.ui.ocupacion.OcupacionViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PersonaScreen( ) {
+fun PersonaScreen(viewModel: PersonaViewModel = hiltViewModel()) {
     var nombre by remember { mutableStateOf("") }
     var telefono by remember { mutableStateOf("") }
     var celular by remember { mutableStateOf("") }
@@ -31,9 +31,11 @@ fun PersonaScreen( ) {
     Box(
         Modifier
             .fillMaxSize()
-            .padding(16.dp)) {
+            .padding(16.dp)
+    ) {
         Column(Modifier.align(Alignment.Center)) {
-            Text(text = "Registro de Personas",
+            Text(
+                text = "Registro de Personas",
                 Modifier
                     .align(Alignment.CenterHorizontally)
                     .padding(8.dp)
@@ -44,7 +46,7 @@ fun PersonaScreen( ) {
                     .padding(4.dp)
                     .fillMaxWidth(),
                 value = nombre,
-                onValueChange = {nombre = it},
+                onValueChange = { nombre = it },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
                 label = { Text("Nombres") }
             )
@@ -54,7 +56,7 @@ fun PersonaScreen( ) {
                     .padding(4.dp)
                     .fillMaxWidth(),
                 value = telefono,
-                onValueChange = {telefono = it  },
+                onValueChange = { telefono = it },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
                 label = { Text("Telefono") }
             )
@@ -64,7 +66,7 @@ fun PersonaScreen( ) {
                     .padding(4.dp)
                     .fillMaxWidth(),
                 value = celular,
-                onValueChange = {celular = it  },
+                onValueChange = { celular = it },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
                 label = { Text("Celular") }
             )
@@ -73,7 +75,7 @@ fun PersonaScreen( ) {
                     .padding(4.dp)
                     .fillMaxWidth(),
                 value = email,
-                onValueChange = {email = it  },
+                onValueChange = { email = it },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                 label = { Text("Email") }
             )
@@ -82,7 +84,7 @@ fun PersonaScreen( ) {
                     .padding(4.dp)
                     .fillMaxWidth(),
                 value = direccion,
-                onValueChange = {direccion = it },
+                onValueChange = { direccion = it },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
                 label = { Text("Dirección") }
             )
@@ -91,9 +93,9 @@ fun PersonaScreen( ) {
                 modifier = Modifier
                     .padding(8.dp)
                     .fillMaxWidth(),
-                text= { Text("Guardar") },
+                text = { Text("Guardar") },
                 icon = { Icon(imageVector = Icons.Filled.Save, contentDescription = "Save") },
-                onClick = {  }
+                onClick = { viewModel.insertar(nombre, telefono, celular, email, direccion) }
             )
         }
     }
