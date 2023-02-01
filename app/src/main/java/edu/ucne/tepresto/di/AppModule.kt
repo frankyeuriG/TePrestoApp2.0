@@ -16,11 +16,12 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun providesDatabase( @ApplicationContext context: Context): TePrestoDb{
+    fun providesDatabase(@ApplicationContext context: Context): TePrestoDb {
         return Room.databaseBuilder(
             context,
             TePrestoDb::class.java,
-            "TePresto.db")
+            "TePresto.db"
+        )
             .fallbackToDestructiveMigration()
             .build()
     }
@@ -28,4 +29,8 @@ object AppModule {
     @Singleton
     @Provides
     fun providesOcupacionDao(db: TePrestoDb) = db.ocupacionDao
+
+    @Singleton
+    @Provides
+    fun providesPersonaDao(db: TePrestoDb) = db.personaDao
 }

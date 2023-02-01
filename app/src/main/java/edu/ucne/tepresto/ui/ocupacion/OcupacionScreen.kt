@@ -14,20 +14,23 @@ import androidx.hilt.navigation.compose.hiltViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun OcupacionScreen( viewModel: OcupacionViewModel = hiltViewModel()) {
+fun OcupacionScreen(viewModel: OcupacionViewModel = hiltViewModel()) {
     var descripcion by remember { mutableStateOf("") }
     var sueldo by remember { mutableStateOf("") }
 
     Box(
         Modifier
             .fillMaxSize()
-            .padding(16.dp)) {
+            .padding(16.dp)
+    ) {
         Column(Modifier.align(Alignment.Center)) {
-            Text(text = "Registro de Ocupaciones",
+            Text(
+                text = "Registro de Ocupaciones",
                 Modifier
                     .align(Alignment.CenterHorizontally)
-                    .padding(8.dp))
-            
+                    .padding(8.dp)
+            )
+
             OutlinedTextField(
                 modifier = Modifier
                     .padding(4.dp)
@@ -50,7 +53,7 @@ fun OcupacionScreen( viewModel: OcupacionViewModel = hiltViewModel()) {
                 modifier = Modifier
                     .padding(8.dp)
                     .fillMaxWidth(),
-                text= { Text("Guardar") },
+                text = { Text("Guardar") },
                 icon = { Icon(imageVector = Icons.Filled.Save, contentDescription = "Save") },
                 onClick = { viewModel.insertar(descripcion, sueldo) }
             )
